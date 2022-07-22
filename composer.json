@@ -2,7 +2,7 @@
     "name": "jacques/php-teleopti-dateranges",
     "description": "Parse date ranges from TeleOpti Schedules",
     "type": "library",
-    "license": "MPLv2",
+    "license": "MPL-2.0",
     "keywords": [
         "carbon",
         "teleopti"
@@ -21,7 +21,8 @@
         "nesbot/carbon": "^2.59"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "rector/rector": "^0.13.8"
     },
     "autoload": {
         "psr-4": {
