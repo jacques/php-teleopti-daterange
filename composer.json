@@ -1,0 +1,36 @@
+{
+    "name": "jacques/php-teleopti-dateranges",
+    "description": "Parse date ranges from TeleOpti Schedules",
+    "type": "library",
+    "license": "MPLv2",
+    "keywords": [
+        "carbon",
+        "teleopti"
+    ],
+    "authors": [
+        {
+            "name": "Jacques Marneweck",
+            "email": "jacques@siberia.co.za",
+            "homepage": "http://www.siberia.co.za/"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "composer/pcre": "^3.0",
+        "ext-pcre": "*",
+        "nesbot/carbon": "^2.59"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jacques\\TeleOpti\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jacques\\TeleOpti\\Tests\\": "tests"
+        }
+    }
+}
