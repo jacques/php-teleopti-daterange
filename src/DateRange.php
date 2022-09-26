@@ -72,7 +72,7 @@ final class DateRange
          *  - hh:mm - hh:mm
          *  - hhmm - hhmm
          */
-        } elseif (Preg::isMatch('!^\D?\D?\s?(\d+:?\d+\s[AP][M])\s?-\s?(\d+:?\d+\d+\s[AP][M])$!', $shifttimes, $matches)) {
+        } elseif (Preg::isMatch('!^\D?\D?\s?(\d+:?\d+\s?[AP][M])\s?-\s?(\d+:?\d+\d+\s?[AP][M])$!', $shifttimes, $matches)) {
             $startdate = Carbon::createFromFormat('Y-m-d H:i A', $date . ' ' . $matches['1'], $timezone);
             $enddate = Carbon::createFromFormat('Y-m-d H:i A', $date . ' ' . $matches['2'], $timezone);
         } else {

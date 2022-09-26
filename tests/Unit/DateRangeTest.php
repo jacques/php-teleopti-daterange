@@ -119,6 +119,15 @@ final class DateRangeTest extends TestCase
                 'LA 7:00 PM - 12:00 AM',
                 'SAST',
             ],
+            'test sage hours with no space between the am/pm seperator' => [
+                [
+                    '2022-09-26 17:00:00',
+                    '2022-09-27 02:00:00',
+                ],
+                '2022-09-26',
+                '5:00PM - 02:00AM',
+                'SAST',
+            ],
         ];
     }
 
@@ -215,6 +224,16 @@ final class DateRangeTest extends TestCase
                 ],
                 '2022-07-22',
                 'LA 7:00 PM - 12:00 AM',
+                'BST',
+                'SAST',
+            ],
+            'test sage hours with no space between the am/pm seperator' => [
+                [
+                    '2022-09-26 18:00:00',
+                    '2022-09-27 03:00:00',
+                ],
+                '2022-09-26',
+                '5:00PM - 02:00AM',
                 'BST',
                 'SAST',
             ],
