@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 /**
  * @author    Jacques Marneweck <jacques@siberia.co.za>
- * @copyright 2022 Jacques Marneweck.  All rights strictly reserved.
+ * @copyright 2022-2023 Jacques Marneweck.  All rights strictly reserved.
  */
 
 namespace Jacques\TeleOpti;
@@ -12,17 +12,12 @@ use Composer\Pcre\Preg;
 final class DateRange
 {
     /**
-     * Parse a the shifttimes from TeleOpti and return an array of the start date and time
-     * as well as the end date and time.
-     *
-     * @param string      $date
-     * @param string      $shifttimes
-     * @param string      $timezone
-     * @param string|null $totimezone
+     * Parse the shifttimes from TeleOpti and return an array of the start date and time
+     * as well as the end date and time.  Conversion of timezones are also done as shift
+     * times in schedules typically in BST (either GMT+0/GMT+1 from the Teleopti server
+     * in the UK).
      *
      * @throws \Exception
-     *
-     * @return array
      */
     public static function parse(string $date, string $shifttimes, string $timezone, ?string $totimezone = null): array
     {
@@ -32,6 +27,7 @@ final class DateRange
         if ('BST' === $timezone) {
             $timezone = 'Europe/London';
         }
+
         if (!is_null($totimezone) && 'BST' === $totimezone) {
             $totimezone = 'Europe/London';
         }
@@ -54,6 +50,7 @@ final class DateRange
                     substr($matches['1'], 2, 2)
                 );
             }
+
             if (strlen($matches['2']) === 4) {
                 $matches['2'] = sprintf(
                     '%02d:%02d',
