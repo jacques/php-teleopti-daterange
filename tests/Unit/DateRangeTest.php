@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 /**
  * @author    Jacques Marneweck <jacques@siberia.co.za>
- * @copyright 2022 Jacques Marneweck.  All rights strictly reserved.
+ * @copyright 2022-2023 Jacques Marneweck.  All rights strictly reserved.
  */
 
 namespace Jacques\TeleOpti\Tests\Unit;
@@ -137,7 +137,7 @@ final class DateRangeTest extends TestCase
     public function provideDateRangeChangeTimeZoneData(): array
     {
         return [
-            'test hours with out : and spaces' => [
+            'test hours with out : and spaces (1900-0000)' => [
                 [
                     '2022-07-22 20:00:00',
                     '2022-07-23 01:00:00',
@@ -147,7 +147,7 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test hours without : and with spaces' => [
+            'test hours without : and with spaces (1900 - 0000)' => [
                 [
                     '2022-07-22 20:00:00',
                     '2022-07-23 01:00:00',
@@ -157,7 +157,7 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test hours with : and without spaces' => [
+            'test hours with : and without spaces (19:00-00:00)' => [
                 [
                     '2022-07-22 20:00:00',
                     '2022-07-23 01:00:00',
@@ -167,7 +167,7 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test hours with : and spaces' => [
+            'test hours with : and spaces (19:00 - 00:00)' => [
                 [
                     '2022-07-22 20:00:00',
                     '2022-07-23 01:00:00',
@@ -177,7 +177,7 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test hours with one : and spaces and pm' => [
+            'test hours with one : and spaces and pm (11:00 AM - 08:00 PM)' => [
                 [
                     '2022-07-22 12:00:00',
                     '2022-07-22 21:00:00',
@@ -187,7 +187,7 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test hours with one alpha, : and spaces' => [
+            'test hours with one alpha, : and spaces (L 19:00 - 00:00)' => [
                 [
                     '2022-07-22 20:00:00',
                     '2022-07-23 01:00:00',
@@ -197,7 +197,7 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test hours with two alpha, : and spaces' => [
+            'test hours with two alpha, : and spaces (LA 19:00 - 00:00)' => [
                 [
                     '2022-07-22 20:00:00',
                     '2022-07-23 01:00:00',
@@ -207,7 +207,7 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test hours with one alpha, : and spaces and pm' => [
+            'test hours with one alpha, : and spaces and pm (L 7:00 PM - 12:00 AM)' => [
                 [
                     '2022-07-22 20:00:00',
                     '2022-07-23 01:00:00',
@@ -217,7 +217,7 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test hours with two alpha, : and spaces and pm' => [
+            'test hours with two alpha, : and spaces and pm (LA 7:00 PM - 12:00 AM)' => [
                 [
                     '2022-07-22 20:00:00',
                     '2022-07-23 01:00:00',
@@ -227,7 +227,67 @@ final class DateRangeTest extends TestCase
                 'BST',
                 'SAST',
             ],
-            'test sage hours with no space between the am/pm seperator' => [
+            'test hours with one alpha, : and spaces and pm (L 7:00 PM - 12:00 AM)' => [
+                [
+                    '2022-07-22 20:00:00',
+                    '2022-07-23 01:00:00',
+                ],
+                '2022-07-22',
+                'L 7:00 PM - 12:00 AM',
+                'BST',
+                'SAST',
+            ],
+            'test hours with one alpha, : and spaces and pm (E 10:00 AM - 7:00 PM)' => [
+                [
+                    '2022-07-22 11:00:00',
+                    '2022-07-22 20:00:00',
+                ],
+                '2022-07-22',
+                'E 10:00 AM - 7:00 PM',
+                'BST',
+                'SAST',
+            ],
+            'test hours with two alpha, : and spaces and pm (DY 08:00 AM - 06:00 PM)' => [
+                [
+                    '2022-07-22 09:00:00',
+                    '2022-07-22 19:00:00',
+                ],
+                '2022-07-22',
+                'DY 08:00 AM - 06:00 PM',
+                'BST',
+                'SAST',
+            ],
+            'test hours with two alpha, : and spaces and pm (E 9:00 AM - 6:00 PM)' => [
+                [
+                    '2022-07-22 10:00:00',
+                    '2022-07-22 19:00:00',
+                ],
+                '2022-07-22',
+                'E 9:00 AM - 6:00 PM',
+                'BST',
+                'SAST',
+            ],
+            'test hours with two alpha, : and spaces and pm (L 2:00 PM - 11:00 PM)' => [
+                [
+                    '2022-07-22 15:00:00',
+                    '2022-07-23 00:00:00',
+                ],
+                '2022-07-22',
+                'L 2:00 PM - 11:00 PM',
+                'BST',
+                'SAST',
+            ],
+            'test hours with two alpha, : and spaces and pm (11:00 AM - 08:00 PM)' => [
+                [
+                    '2022-07-22 12:00:00',
+                    '2022-07-22 21:00:00',
+                ],
+                '2022-07-22',
+                '11:00 AM - 08:00 PM',
+                'BST',
+                'SAST',
+            ],
+            'test sage hours with no space between the am/pm seperator (5:00PM - 02:00AM)' => [
                 [
                     '2022-09-26 18:00:00',
                     '2022-09-27 03:00:00',
