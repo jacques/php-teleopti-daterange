@@ -17,15 +17,14 @@
     "require": {
         "php": "^8.0",
         "ext-pcre": "*",
-        "composer/pcre": "^3.2",
+        "composer/pcre": "^3.3",
         "nesbot/carbon": "^2.59"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.43",
         "phpunit/php-invoker": "^3.1",
         "phpunit/phpunit": "^9.6",
-        "rector/rector": "^1.2",
-        "vimeo/psalm": "^5.25"
+        "rector/rector": "^1.2"
     },
     "autoload": {
         "psr-4": {
