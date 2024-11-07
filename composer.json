@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "ext-pcre": "*",
         "composer/pcre": "^3.3",
         "nesbot/carbon": "^2.59"
